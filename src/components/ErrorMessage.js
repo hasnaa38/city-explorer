@@ -12,7 +12,7 @@ class ErrorMessage extends Component {
                                 <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
                                 <p>
                                     Error: {this.props.error_msg_data} <br />
-                                    Status Code: <Badge pill bg="warning">{this.props.error_status}</Badge><br />
+                                    Status Code: <Badge pill bg="secondary">{this.props.error_status}</Badge><br />
                                     Try Again!
                                 </p>
                             </Alert>
