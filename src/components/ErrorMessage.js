@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Alert, Badge } from 'react-bootstrap';
 
 class ErrorMessage extends Component {
     render() {
@@ -11,8 +11,8 @@ class ErrorMessage extends Component {
                             <Alert variant="danger">
                                 <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
                                 <p>
-                                    Error: {this.props.error_msg_data} <br/>
-                                    Status Code: {this.props.error_status} <br/>
+                                    Error: {this.props.error_msg_data} <br />
+                                    Status Code: <Badge pill bg="warning">{this.props.error_status}</Badge><br />
                                     Try Again!
                                 </p>
                             </Alert>

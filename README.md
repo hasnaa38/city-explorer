@@ -28,6 +28,10 @@ This application allows users to find the location of a city for a city of their
     The `handleSubmit` will be passed the search form component and used as an `onSubmit` callback in the form tag.
     4. create a `handleSubmit` method to clear the screen. This method should be passed to the search form component and used as an `onClick` callback for the clear button.
 
+#### WRRC
+
+![WRRC image](./src/assets/WRRC.PNG)
+
 ### Steps for implementing Feature .2 - Location Map
 
 1. In the location component, add a Bootstrap image component of your choice.
