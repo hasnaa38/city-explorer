@@ -12,18 +12,14 @@ class SearchForm extends Component {
                             <Form.Control type="text" placeholder="City Name" onChange={this.props.handleLocation} />
                         </Form.Group>
                     </Row>
-                    <Row>
-                        <Col xs={2}>
-                            <Button variant="dark" type="submit">
+                    <div className="buttonsArea">
+                            <Button className="exploreButton" variant="dark" type="submit">
                                 Explore!
                             </Button>
-                        </Col>
-                        <Col xs={1}>
                             <Button variant="dark" className="clearButton" type="submit" onClick={this.props.handleClear}>
                                 Clear
                             </Button>
-                        </Col>
-                    </Row>
+                    </div>
                 </Form>
             </div>
         )

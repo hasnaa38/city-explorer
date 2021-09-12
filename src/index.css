@@ -15,17 +15,23 @@ code {
 
 .mainContainer {
   margin-top: 40px;
+  height: 100%;
+  position: relative;
 }
 
 input[type=text] {
   width: 90%;
   padding: 12px 20px;
-  /* margin: 40px 0px 5px 0px; */
+}
+
+.buttonsArea {
+  display: flex;
+  flex-direction: row;
 }
 
 .clearButton {
   position: relative;
-  left: -20px;
+  left: 10px;
 }
 
 h3 {
@@ -40,8 +46,3 @@ img {
   margin-bottom: 20px;
 }
 
-.footerContainer{
-  position: absolute;
-  height: 100%;
-  bottom: 0px;
-}
