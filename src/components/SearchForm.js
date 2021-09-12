@@ -8,7 +8,7 @@ class SearchForm extends Component {
                 <Form onSubmit={this.props.handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>City Name</Form.Label>
-                        <Form.Control type="text" placeholder="City Name" onChange={this.props.handleLocation} />
+                        <Form.Control type="text" placeholder="City Name" onChange={this.props.handleLocation}/>
                     </Form.Group>
                     <Button variant="dark" type="submit">
                         Explore!

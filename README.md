@@ -4,11 +4,15 @@
 **Version**: 1.0.0 <!--(increment the patch/fix version number if you make more commits past your first submission)-->
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
+
+This application allows users to find the location of a city for a city of their choice. When users chooses a city and clicks explore button, they will be provided with:
+
+1. The name, address, latitude and longitude coordinates of the city.
+2. A static map of the city with a cutout.
 
 ## Getting Started
 
-### Steps of implementing Feature .1 - Location Explore:
+### Steps for implementing Feature .1 - Location Explore
 
 1. Sign-up to LocationIQ API.
 2. Store the access token you got by signing up to LocationIQ in an .env file.
@@ -24,7 +28,19 @@
     The `handleSubmit` will be passed the search form component and used as an `onSubmit` callback in the form tag.
     4. create a `handleSubmit` method to clear the screen. This method should be passed to the search form component and used as an `onClick` callback for the clear button.
 
+### Steps for implementing Feature .2 - Location Map
 
+1. In the location component, add a Bootstrap image component of your choice.
+2. The source of the map's image will be: `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&size=600x600&zoom=14&markers=${this.props.lat},${this.props.lon}|icon:large-black-cutout&format=png`
+
+### Steps for implementing Feature .3 - Alert Errors
+
+1. Create a new component named ErrorMessage and add an alert bootstrap component in it.
+2. In App.js component, add new properties to the status: error code, error message, error alert flag.
+3. Catch the response errors: `axios(config).then(res => {FUNCTION}).catch(error => {FUNCTION}`.
+    You can reach the response error using `error.response`, response error data using `error.response.data`.
+    Set the state to these new error value.
+4. Pass the new state values to ErrorMessage as props and use them there.
 
 ## Architecture
 
@@ -36,7 +52,9 @@
 
 ## Change Log
 
-12-09-2021 4:30pm - Application now has a location explore functionality, with a GET route for the location resource.
+12-09-2021 04:30pm - Application now has a location explore functionality, with a GET route for the location resource.
+12-09-2021 07:20pm - Application now can show map of the requested location.
+12-09-2021 08:00pm - Application now can alert for errors.
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -50,9 +68,16 @@ Start time: 2:45 pm
 Finish time: 4:30 pm
 Actual time needed to complete: 1 hour and 45 minutes
 
-### Feature .2 - 
+### Feature .2 - Add Map
 
-Estimate of time needed to complete: 
-Start time: 
-Finish time: 
-Actual time needed to complete: 
+Estimate of time needed to complete: 1 hour
+Start time: 6:30 pm
+Finish time: 7:20 pm
+Actual time needed to complete: 50 minutes
+
+### Feature .3 - Add Errors Alert
+
+Estimate of time needed to complete: 1 hour
+Start time: 7:30 pm
+Finish time: 8:00 pm
+Actual time needed to complete: 30 minutes
