@@ -8,10 +8,10 @@ class Location extends Component {
                 <Container>
                     <Row>
                         <Col xs={12}>
-                            <h3>City: {this.props.display_place}</h3>
-                            <h3>Country: {this.props.address_country}</h3>
-                            <h3>Latitude: {this.props.lat}</h3>
-                            <h3>Longitude: {this.props.lon}</h3>
+                            <h3 style={{fontSize:"24px"}}>City: {this.props.display_place}</h3>
+                            <h3 style={{fontSize:"24px"}}>Country: {this.props.address_country}</h3>
+                            <h3 style={{fontSize:"24px"}}>Latitude: {this.props.lat}</h3>
+                            <h3 style={{fontSize:"24px"}}>Longitude: {this.props.lon}</h3>
                         </Col>
                     </Row>
                 </Container>
