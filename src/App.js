@@ -79,7 +79,6 @@ class App extends Component {
             <Navbar.Brand>City Explorer</Navbar.Brand>
           </Container>
         </Navbar>
-        <br />
         <Container className='mainContainer'>
           <Row>
             <Col xs={6}>
