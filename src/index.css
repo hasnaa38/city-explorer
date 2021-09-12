@@ -29,10 +29,10 @@ input[type=text] {
   flex-direction: row;
 }
 
-.clearButton {
+/* .clearButton {
   position: relative;
   left: 10px;
-}
+} */
 
 h3 {
   color: #212529;
