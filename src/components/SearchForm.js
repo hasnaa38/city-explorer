@@ -13,6 +13,9 @@ class SearchForm extends Component {
                     <Button variant="dark" type="submit">
                         Explore!
                     </Button>
+                    <Button variant="dark" type="submit" onClick={this.props.handleClear}>
+                        Clear
+                    </Button>
                 </Form>
             </div>
         )

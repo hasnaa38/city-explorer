@@ -42,6 +42,17 @@ class App extends Component {
     })
   }
 
+  handleClear = (e) => {
+    e.preventDefault();
+    this.setState({
+      display_place: '',
+      address_country: '',
+      lat: '',
+      lon: '',
+      show_results_flag: false,
+    });
+  }
+
   render() {
     return (
       <div>
@@ -55,7 +66,7 @@ class App extends Component {
         <Container className='searchFormContainer'>
           <Row>
             <Col xs={12}>
-              <SearchForm handleLocation={this.handleLocation} handleSubmit={this.handleSubmit} />
+              <SearchForm handleLocation={this.handleLocation} handleSubmit={this.handleSubmit} handleClear={this.handleClear} />
             </Col>
           </Row>
         </Container>
