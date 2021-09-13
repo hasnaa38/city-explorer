@@ -59,6 +59,7 @@ This application allows users to find the location of a city for a city of their
 12-09-2021 04:30pm - Application now has a location explore functionality, with a GET route for the location resource.
 12-09-2021 07:20pm - Application now can show map of the requested location.
 12-09-2021 08:00pm - Application now can alert for errors.
+13-09-2021 09:00pm - Application now can show weather info for certain locations.
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -85,3 +86,10 @@ Estimate of time needed to complete: 1 hour
 Start time: 7:30 pm
 Finish time: 8:00 pm
 Actual time needed to complete: 30 minutes
+
+### Feature .4 - Location Weather API
+
+Estimate of time needed to complete: 1 hour
+Start time: 7:30 pm
+Finish time: 9:00 pm
+Actual time needed to complete: 90 minutes
