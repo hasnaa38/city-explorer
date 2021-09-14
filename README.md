@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Hasnaa Al-Habahbeh
-**Version**: 1.0.0 <!--(increment the patch/fix version number if you make more commits past your first submission)-->
+**Version**: 2.0.0 <!--(increment the patch/fix version number if you make more commits past your first submission)-->
 
 ## Overview
 
@@ -60,6 +60,7 @@ This application allows users to find the location of a city for a city of their
 12-09-2021 07:20pm - Application now can show map of the requested location.
 12-09-2021 08:00pm - Application now can alert for errors.
 13-09-2021 09:00pm - Application now can show weather info for certain locations.
+14-09-2021 10:30pm - Application now can show weather info for all locations and movies for the city name.
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
@@ -93,3 +94,10 @@ Estimate of time needed to complete: 1 hour
 Start time: 7:30 pm
 Finish time: 9:00 pm
 Actual time needed to complete: 90 minutes
+
+### Feature .5 - Location Weather Bit API and MoviedB API
+
+Estimate of time needed to complete: 1 hour
+Start time: 9 pm
+Finish time: 10:15 pm
+Actual time needed to complete: 1:15 hour
