@@ -79,8 +79,8 @@ class App extends Component {
   }
 
   weatherBitAPI = () => {
-    // 
-    axios.get(`${process.env.REACT_APP_HEROKU_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}`)
+    // https://city-explorer-api-h3.herokuapp.com
+    axios.get(`https://city-explorer-api-h3.herokuapp.com/weather?lat=${this.state.lat}&lon=${this.state.lon}`)
       .then(res => {
         this.setState(
           {
@@ -98,7 +98,7 @@ class App extends Component {
   }
 
   moviedbAPI = () => {
-    axios.get(`${process.env.REACT_APP_HEROKU_URL}/movies?city_name=${this.state.display_place}`)
+    axios.get(`https://city-explorer-api-h3.herokuapp.com/movies?city_name=${this.state.display_place}`)
       .then(res => {
         console.log('===========')
         console.log(res.data);
