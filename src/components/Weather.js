@@ -7,7 +7,7 @@ class Weather extends Component {
             <>
                 <Accordion>
                     <Accordion.Item eventKey="0">
-                        <Accordion.Header>{this.props.date} weather</Accordion.Header>
+                        <Accordion.Header>{this.props.index} - {this.props.date} weather</Accordion.Header>
                         <Accordion.Body>{this.props.description}</Accordion.Body>
                     </Accordion.Item>
                 </Accordion>
