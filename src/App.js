@@ -74,6 +74,7 @@ class App extends Component {
       if (this.state.show_results_flag) {
         this.weatherBitAPI();
         this.moviedbAPI();
+        this.oldWeatherAPI(); //Lab 07
       }
     })
   }
@@ -118,6 +119,26 @@ class App extends Component {
       })
   }
 
+  oldWeatherAPI = () => {
+    axios.get(`http://localhost:8000/old_weather?lat=${this.state.lat}&lon=${this.state.lon}&searched_city=${this.state.display_place}`)
+      .then(res => {
+        this.setState(
+          {
+            oldWeatherData: res.data,
+          }
+        );
+      }).catch(error => {
+        this.setState(
+          {
+            api_name: 'Old Weather API for Lab07',
+            api_response_error_status: error.response.status,
+            api_response_error_msg_data: error.response.data.message,
+            show_api_error_alert_flag: true,
+          }
+        );
+      })
+  }
+
   handleClear = (e) => {
     e.preventDefault();
     this.setState({
@@ -151,7 +172,7 @@ class App extends Component {
               <Row className="searchArea">
                 <SearchForm handleLocation={this.handleLocation} handleSubmit={this.handleSubmit} handleClear={this.handleClear} />
               </Row>
-              <br/><br/>
+              <br /><br />
               <Row className="resultsArea">
                 {this.state.show_results_flag && <Location display_place={this.state.display_place}
                   address_country={this.state.address_country} lat={this.state.lat} lon={this.state.lon} />}
@@ -164,14 +185,21 @@ class App extends Component {
               })}
             </Col>
           </Row>
-          <br/><br/>
+          <br /><br />
           <Row className="moviesArea">
-              {this.state.moviesData.map(movie => {
-                return <Movies title={movie.title} overview={movie.overview} average_votes={movie.average_votes} total_votes={movie.total_votes} image_url={movie.image_url} popularity={movie.popularity} released_on={movie.released_on} />
-              })}
+            {this.state.moviesData.map(movie => {
+              return <Movies title={movie.title} overview={movie.overview} average_votes={movie.average_votes} total_votes={movie.total_votes} image_url={movie.image_url} popularity={movie.popularity} released_on={movie.released_on} />
+            })}
           </Row>
           <Row>
             {this.state.show_api_error_alert_flag && <WeatherError api_name={this.state.api_name} api_response_error_status={this.state.api_response_error_status} api_response_error_msg_data={this.state.api_response_error_msg_data} />}
+          </Row>
+          <br/><br/><br/><br/>
+
+          <Row>
+            {this.state.oldWeatherData.map((day, index) => {
+              return <Weather date={day.date} description={day.description} index={index + 1} />
+            })}
           </Row>
         </Container>
       </div>
