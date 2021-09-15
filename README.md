@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Hasnaa Al-Habahbeh
-**Version**: 2.0.0 <!--(increment the patch/fix version number if you make more commits past your first submission)-->
+**Version**: 2.0.0
 
 ## Overview
 
@@ -101,3 +101,10 @@ Estimate of time needed to complete: 1 hour
 Start time: 9 pm
 Finish time: 10:15 pm
 Actual time needed to complete: 1:15 hour
+
+### Refactoring the Code to Componentize the Front-end Codebase
+
+Estimate of time needed to complete: 30 minutes
+Start time: 3:50 pm
+Finish time: 4:15 pm
+Actual time needed to complete: 25 minutes

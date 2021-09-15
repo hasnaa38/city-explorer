@@ -21,7 +21,6 @@ class App extends Component {
       error_status: '',
       error_msg_data: '',
       show_alert_flag: false,
-      oldWeatherData: [],
       weatherData: [],
       moviesData: [],
       api_name: '',
@@ -31,6 +30,7 @@ class App extends Component {
 
     };
   }
+
   handleLocation = (e) => {
     let city_name = e.target.value;
     this.setState({
@@ -53,7 +53,6 @@ class App extends Component {
         lon: locationData.lon,
         show_results_flag: true,
         show_alert_flag: false,
-        oldWeatherData: [],
         weatherData: [],
         moviesData: [],
         show_api_error_alert_flag: false,
@@ -65,7 +64,6 @@ class App extends Component {
         error_msg_data: error.response.data.error,
         show_alert_flag: true,
         show_results_flag: false,
-        oldWeatherData: [],
         weatherData: [],
         moviesData: [],
       });
@@ -74,14 +72,12 @@ class App extends Component {
       if (this.state.show_results_flag) {
         this.weatherBitAPI();
         this.moviedbAPI();
-        this.oldWeatherAPI(); //Lab 07
       }
     })
   }
 
   weatherBitAPI = () => {
-    // https://city-explorer-api-h3.herokuapp.com
-    axios.get(`https://city-explorer-api-h3.herokuapp.com/weather?lat=${this.state.lat}&lon=${this.state.lon}`)
+    axios.get(`${process.env.REACT_APP_HEROKU_URL}/weather?lat=${this.state.lat}&lon=${this.state.lon}`)
       .then(res => {
         this.setState(
           {
@@ -99,7 +95,7 @@ class App extends Component {
   }
 
   moviedbAPI = () => {
-    axios.get(`https://city-explorer-api-h3.herokuapp.com/movies?city_name=${this.state.display_place}`)
+    axios.get(`${process.env.REACT_APP_HEROKU_URL}/movies?city_name=${this.state.display_place}`)
       .then(res => {
         console.log('===========')
         console.log(res.data);
@@ -119,26 +115,6 @@ class App extends Component {
       })
   }
 
-  oldWeatherAPI = () => {
-    axios.get(`http://localhost:8000/old_weather?lat=${this.state.lat}&lon=${this.state.lon}&searched_city=${this.state.display_place}`)
-      .then(res => {
-        this.setState(
-          {
-            oldWeatherData: res.data,
-          }
-        );
-      }).catch(error => {
-        this.setState(
-          {
-            api_name: 'Old Weather API for Lab07',
-            api_response_error_status: error.response.status,
-            api_response_error_msg_data: error.response.data.message,
-            show_api_error_alert_flag: true,
-          }
-        );
-      })
-  }
-
   handleClear = (e) => {
     e.preventDefault();
     this.setState({
@@ -150,14 +126,13 @@ class App extends Component {
       error_status: '',
       error_msg_data: '',
       show_alert_flag: false,
-      oldWeatherData: [],
       weatherData: [],
       moviesData: [],
       show_api_error_alert_flag: false,
       api_name: '',
     });
   }
-  // 
+ 
   render() {
     return (
       <div>
@@ -180,26 +155,15 @@ class App extends Component {
               </Row>
             </Col>
             <Col xs={6} className="weatherArea">
-              {this.state.weatherData.map((day, index) => {
-                return <Weather date={day.date} description={day.description} index={index + 1} />
-              })}
+              <Weather weatherData={this.state.weatherData}/>
             </Col>
           </Row>
           <br /><br />
           <Row className="moviesArea">
-            {this.state.moviesData.map(movie => {
-              return <Movies title={movie.title} overview={movie.overview} average_votes={movie.average_votes} total_votes={movie.total_votes} image_url={movie.image_url} popularity={movie.popularity} released_on={movie.released_on} />
-            })}
+            <Movies moviesData={this.state.moviesData}/>
           </Row>
           <Row>
             {this.state.show_api_error_alert_flag && <WeatherError api_name={this.state.api_name} api_response_error_status={this.state.api_response_error_status} api_response_error_msg_data={this.state.api_response_error_msg_data} />}
-          </Row>
-          <br/><br/><br/><br/>
-
-          <Row>
-            {this.state.oldWeatherData.map((day, index) => {
-              return <Weather date={day.date} description={day.description} index={index + 1} />
-            })}
           </Row>
         </Container>
       </div>
