@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import MovieCard from './MovieCard';
+import { Badge } from 'react-bootstrap';
 
 class Movies extends Component {
     render() {
@@ -10,7 +11,11 @@ class Movies extends Component {
                         total_votes={movie.total_votes} image_url={movie.image_url} popularity={movie.popularity}
                         released_on={movie.released_on} />
                 })}
-
+                <br/>
+                {this.props.showFlag && <h6>
+                    Movies data source: <Badge bg="info">{this.props.data_source}</Badge>
+                </h6>}
+                <br/>
             </>
         )
     }

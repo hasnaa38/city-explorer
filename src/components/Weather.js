@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Accordion } from 'react-bootstrap';
+import { Accordion, Badge } from 'react-bootstrap';
 import WeatherDay from './WeatherDay';
 
 class Weather extends Component {
@@ -11,6 +11,10 @@ class Weather extends Component {
                         return <WeatherDay date={day.date} description={day.description} index={index + 1} />
                     })
                 }
+                <br/>
+                {this.props.showFlag && <h6>
+                    Weather data source: <Badge bg="info">{this.props.data_source}</Badge>
+                </h6> }
             </>
         )
     }

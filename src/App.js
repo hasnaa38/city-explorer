@@ -27,7 +27,7 @@ class App extends Component {
       show_api_error_alert_flag: false,
       api_response_error_status: '',
       api_response_error_msg_data: '',
-
+      data_source: '', 
     };
   }
 
@@ -56,6 +56,7 @@ class App extends Component {
         weatherData: [],
         moviesData: [],
         show_api_error_alert_flag: false,
+        data_source: '',
       });
     }).catch(error => {
       console.log('city not found');
@@ -81,10 +82,11 @@ class App extends Component {
       .then(res => {
         this.setState(
           {
-            weatherData: res.data,
+            weatherData: res.data.data,
+            data_source: res.data.source, 
           });
       }).catch(error => {
-        console.log('weather bit error, status code: ', error.response.data.status);
+        console.log('weather bit error, status code: ', error.response.data.data.status);
         this.setState({
           api_name: 'Weather Bit',
           api_response_error_status: error.response.status,
@@ -97,11 +99,10 @@ class App extends Component {
   moviedbAPI = () => {
     axios.get(`${process.env.REACT_APP_HEROKU_URL}/movies?city_name=${this.state.display_place}`)
       .then(res => {
-        console.log('===========')
-        console.log(res.data);
         this.setState(
           {
-            moviesData: res.data,
+            moviesData: res.data.data,
+            data_source: res.data.source,
           }
         );
       }).catch(error => {
@@ -130,6 +131,7 @@ class App extends Component {
       moviesData: [],
       show_api_error_alert_flag: false,
       api_name: '',
+      data_source: '', 
     });
   }
  
@@ -155,12 +157,12 @@ class App extends Component {
               </Row>
             </Col>
             <Col xs={6} className="weatherArea">
-              <Weather weatherData={this.state.weatherData}/>
+              <Weather weatherData={this.state.weatherData} data_source={this.state.data_source} showFlag={this.state.show_results_flag}/>
             </Col>
           </Row>
           <br /><br />
           <Row className="moviesArea">
-            <Movies moviesData={this.state.moviesData}/>
+            <Movies moviesData={this.state.moviesData} data_source={this.state.data_source} showFlag={this.state.show_results_flag}/>
           </Row>
           <Row>
             {this.state.show_api_error_alert_flag && <WeatherError api_name={this.state.api_name} api_response_error_status={this.state.api_response_error_status} api_response_error_msg_data={this.state.api_response_error_msg_data} />}
